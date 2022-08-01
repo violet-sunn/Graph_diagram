@@ -1,217 +1,370 @@
 digraph G {
-	pn0 [label="pn -24"]
-	pn1 [label="pn -30"]
-	pn2 [label="pn -12"]
-	pn3 [label="pn -27"]
-	pn4 [label="pn -3"]
-	pn5 [label="pn -17"]
-	pn6 [label="pn -21"]
-	pn7 [label="pn -5"]
-	pn8 [label="pn -18"]
-	pn9 [label="pn -22"]
-	pn10 [label="pn -25"]
-	pn11 [label="pn -6"]
-	pn12 [label="pn -26"]
-	pn13 [label="pn -19"]
-	pn14 [label="pn -23"]
-	pn15 [label="pn -7"]
-	pn16 [label="pn -20"]
-	pn17 [label="pn -1"]
-	pn18 [label="pn -8"]
-	pn19 [label="pn -32"]
-	pn20 [label="pn -15"]
-	pn21 [label="pn -33"]
-	pn22 [label="pn -4"]
-	pn23 [label="pn -9"]
-	pn24 [label="pn -11"]
-	pn25 [label="pn -16"]
-	pn26 [label="pn -10"]
-	pn27 [label="pn -13"]
-	pn28 [label="pn -14"]
-	cn0 [label="cn 41"]
-	cn1 [label="cn 42"]
-	cn2 [label="cn 48"]
-	cn3 [label="cn 57"]
-	cn4 [label="cn 55"]
-	cn5 [label="cn 43"]
-	cn6 [label="cn 46"]
-	cn7 [label="cn 49"]
-	cn8 [label="cn 83"]
-	cn9 [label="cn 85"]
-	cn10 [label="cn 69"]
-	cn11 [label="cn 59"]
-	cn12 [label="cn 75"]
-	cn13 [label="cn 25"]
-	cn14 [label="cn 58"]
-	cn15 [label="cn 30"]
-	cn16 [label="cn 26"]
-	cn17 [label="cn 105"]
-	cn18 [label="cn 107"]
-	cn19 [label="cn 106"]
-	cn20 [label="cn 108"]
-	cn21 [label="cn 101"]
-	cn22 [label="cn 99"]
-	cn23 [label="cn 100"]
-	cn24 [label="cn 8"]
-	cn25 [label="cn 9"]
-	cn26 [label="cn 11"]
-	cn27 [label="cn 13"]
-	cn28 [label="cn 14"]
-	cn29 [label="cn 10"]
-	cn30 [label="cn 12"]
-	cn31 [label="cn 15"]
-	cn32 [label="cn 121"]
-	cn33 [label="cn 122"]
-	cn34 [label="cn 120"]
-	cn35 [label="cn 123"]
-	cn36 [label="cn 124"]
-	cn37 [label="cn 125"]
-	cn38 [label="cn 126"]
-	cn39 [label="cn 127"]
-	cn40 [label="cn 128"]
-	cn41 [label="cn 129"]
-	cn42 [label="cn 130"]
-	cn43 [label="cn 131"]
-	cn44 [label="cn 0"]
-	cn45 [label="cn 1"]
-	cn46 [label="cn 3"]
-	cn47 [label="cn 4"]
-	cn48 [label="cn 5"]
-	cn49 [label="cn 7"]
-	cn50 [label="cn 6"]
-	cn51 [label="cn 2"]
-	cn52 [label="cn 132"]
-	cn53 [label="cn 134"]
-	cn54 [label="cn 136"]
-	cn55 [label="cn 133"]
-	cn56 [label="cn 137"]
-	cn57 [label="cn 138"]
-	cn58 [label="cn 141"]
-	cn59 [label="cn 142"]
-	cn60 [label="cn 135"]
-	cn61 [label="cn 139"]
-	cn62 [label="cn 109"]
-	cn63 [label="cn 119"]
-	cn64 [label="cn 16"]
-	cn65 [label="cn 17"]
-	cn66 [label="cn 19"]
-	cn67 [label="cn 20"]
-	cn68 [label="cn 22"]
-	cn69 [label="cn 21"]
-	cn70 [label="cn 23"]
-	cn71 [label="cn 18"]
-	cn72 [label="cn 144"]
-	cn73 [label="cn 145"]
-	cn74 [label="cn 147"]
-	cn75 [label="cn 149"]
-	cn76 [label="cn 150"]
-	cn77 [label="cn 153"]
-	cn78 [label="cn 155"]
-	cn79 [label="cn 140"]
-	cn80 [label="cn 148"]
-	cn81 [label="cn 61"]
-	cn82 [label="cn 143"]
-	cn83 [label="cn 146"]
-	cn84 [label="cn 68"]
-	cn85 [label="cn 86"]
-	cn86 [label="cn 24"]
-	cn87 [label="cn 81"]
-	cn88 [label="cn 79"]
-	cn89 [label="cn 45"]
-	cn90 [label="cn 80"]
-	cn91 [label="cn 78"]
-	cn92 [label="cn 76"]
-	cn93 [label="cn 77"]
-	cn94 [label="cn 82"]
-	cn95 [label="cn 84"]
-	cn96 [label="cn 115"]
-	cn97 [label="cn 118"]
-	cn98 [label="cn 113"]
-	cn99 [label="cn 112"]
-	cn100 [label="cn 114"]
-	cn101 [label="cn 110"]
-	cn102 [label="cn 111"]
-	cn103 [label="cn 116"]
-	cn104 [label="cn 117"]
-	cn105 [label="cn 156"]
-	cn106 [label="cn 157"]
-	cn107 [label="cn 158"]
-	cn108 [label="cn 28"]
-	cn109 [label="cn 33"]
-	cn110 [label="cn 38"]
-	cn111 [label="cn 37"]
-	cn112 [label="cn 29"]
-	cn113 [label="cn 31"]
-	cn114 [label="cn 35"]
-	cn115 [label="cn 36"]
-	cn116 [label="cn 65"]
-	cn117 [label="cn 32"]
-	cn118 [label="cn 27"]
-	cn119 [label="cn 104"]
-	cn120 [label="cn 92"]
-	cn121 [label="cn 95"]
-	cn122 [label="cn 98"]
-	cn123 [label="cn 96"]
-	cn124 [label="cn 97"]
-	cn125 [label="cn 89"]
-	cn126 [label="cn 91"]
-	cn127 [label="cn 94"]
-	cn128 [label="cn 90"]
-	cn129 [label="cn 93"]
-	cn130 [label="cn 87"]
-	cn131 [label="cn 88"]
-	cn132 [label="cn 52"]
-	cn133 [label="cn 53"]
-	cn134 [label="cn 60"]
-	cn135 [label="cn 47"]
-	cn136 [label="cn 51"]
-	cn137 [label="cn 62"]
-	cn138 [label="cn 54"]
-	cn139 [label="cn 50"]
-	cn140 [label="cn 44"]
-	cn141 [label="cn 102"]
-	cn142 [label="cn 103"]
-	cn143 [label="cn 56"]
-	cn144 [label="cn 71"]
-	cn145 [label="cn 74"]
-	cn146 [label="cn 64"]
-	cn147 [label="cn 72"]
-	cn148 [label="cn 66"]
-	cn149 [label="cn 73"]
-	cn150 [label="cn 63"]
-	cn151 [label="cn 67"]
-	cn152 [label="cn 70"]
-	cn153 [label="cn 34"]
-	cn154 [label="cn 39"]
-	cn155 [label="cn 40"]
-	test [label=TEST_NODE]
-	pn0 -> test
-	pn1 -> test
-	pn2 -> test
-	pn3 -> test
-	pn4 -> test
-	pn5 -> test
-	pn6 -> test
-	pn7 -> test
-	pn8 -> test
-	pn9 -> test
-	pn10 -> test
-	pn11 -> test
-	pn12 -> test
-	pn13 -> test
-	pn14 -> test
-	pn15 -> test
-	pn16 -> test
-	pn17 -> test
-	pn18 -> test
-	pn19 -> test
-	pn20 -> test
-	pn21 -> test
-	pn22 -> test
-	pn23 -> test
-	pn24 -> test
-	pn25 -> test
-	pn26 -> test
-	pn27 -> test
-	pn28 -> test
+	newrank=true
+	-24 [label="ssd-1t"]
+	-17 [label=sata]
+	-1 [label=default]
+	-30 [label="miran-1t"]
+	-27 [label="raduga-1t"]
+	-21 [label="miran-sata"]
+	-22 [label="vdc-sata"]
+	-23 [label="imq-sata"]
+	-8 [label=vdc]
+	-9 [label=selectel]
+	-10 [label=imq]
+	-25 [label="rack-selectel-sata"]
+	-26 [label="rack-raduga-sata"]
+	-32 [label="rack-miran"]
+	-33 [label="rack-raduga"]
+	-12 [label=rceph1]
+	-3 [label=kceph1]
+	-5 [label=rceph]
+	-18 [label=rceph3]
+	-6 [label=ceph]
+	-19 [label=kceph3]
+	-7 [label=bceph]
+	-20 [label=bceph3]
+	-15 [label=rceph2]
+	-4 [label=kceph2]
+	-11 [label=ceph1]
+	-16 [label=ceph2]
+	-13 [label=bceph1]
+	-14 [label=bceph2]
+	41 [label="osd.41"]
+	42 [label="osd.42"]
+	48 [label="osd.48"]
+	57 [label="osd.57"]
+	55 [label="osd.55"]
+	43 [label="osd.43"]
+	46 [label="osd.46"]
+	49 [label="osd.49"]
+	83 [label="osd.83"]
+	85 [label="osd.85"]
+	69 [label="osd.69"]
+	59 [label="osd.59"]
+	75 [label="osd.75"]
+	25 [label="osd.25"]
+	58 [label="osd.58"]
+	30 [label="osd.30"]
+	26 [label="osd.26"]
+	105 [label="osd.105"]
+	107 [label="osd.107"]
+	106 [label="osd.106"]
+	108 [label="osd.108"]
+	101 [label="osd.101"]
+	99 [label="osd.99"]
+	100 [label="osd.100"]
+	8 [label="osd.8"]
+	9 [label="osd.9"]
+	11 [label="osd.11"]
+	13 [label="osd.13"]
+	14 [label="osd.14"]
+	10 [label="osd.10"]
+	12 [label="osd.12"]
+	15 [label="osd.15"]
+	121 [label="osd.121"]
+	122 [label="osd.122"]
+	120 [label="osd.120"]
+	123 [label="osd.123"]
+	124 [label="osd.124"]
+	125 [label="osd.125"]
+	126 [label="osd.126"]
+	127 [label="osd.127"]
+	128 [label="osd.128"]
+	129 [label="osd.129"]
+	130 [label="osd.130"]
+	131 [label="osd.131"]
+	0 [label="osd.0"]
+	1 [label="osd.1"]
+	3 [label="osd.3"]
+	4 [label="osd.4"]
+	5 [label="osd.5"]
+	7 [label="osd.7"]
+	6 [label="osd.6"]
+	2 [label="osd.2"]
+	132 [label="osd.132"]
+	134 [label="osd.134"]
+	136 [label="osd.136"]
+	133 [label="osd.133"]
+	137 [label="osd.137"]
+	138 [label="osd.138"]
+	141 [label="osd.141"]
+	142 [label="osd.142"]
+	135 [label="osd.135"]
+	139 [label="osd.139"]
+	109 [label="osd.109"]
+	119 [label="osd.119"]
+	16 [label="osd.16"]
+	17 [label="osd.17"]
+	19 [label="osd.19"]
+	20 [label="osd.20"]
+	22 [label="osd.22"]
+	21 [label="osd.21"]
+	23 [label="osd.23"]
+	18 [label="osd.18"]
+	144 [label="osd.144"]
+	145 [label="osd.145"]
+	147 [label="osd.147"]
+	149 [label="osd.149"]
+	150 [label="osd.150"]
+	153 [label="osd.153"]
+	155 [label="osd.155"]
+	140 [label="osd.140"]
+	148 [label="osd.148"]
+	61 [label="osd.61"]
+	143 [label="osd.143"]
+	146 [label="osd.146"]
+	68 [label="osd.68"]
+	86 [label="osd.86"]
+	24 [label="osd.24"]
+	81 [label="osd.81"]
+	79 [label="osd.79"]
+	45 [label="osd.45"]
+	80 [label="osd.80"]
+	78 [label="osd.78"]
+	76 [label="osd.76"]
+	77 [label="osd.77"]
+	82 [label="osd.82"]
+	84 [label="osd.84"]
+	115 [label="osd.115"]
+	118 [label="osd.118"]
+	113 [label="osd.113"]
+	112 [label="osd.112"]
+	114 [label="osd.114"]
+	110 [label="osd.110"]
+	111 [label="osd.111"]
+	116 [label="osd.116"]
+	117 [label="osd.117"]
+	156 [label="osd.156"]
+	157 [label="osd.157"]
+	158 [label="osd.158"]
+	28 [label="osd.28"]
+	33 [label="osd.33"]
+	38 [label="osd.38"]
+	37 [label="osd.37"]
+	29 [label="osd.29"]
+	31 [label="osd.31"]
+	35 [label="osd.35"]
+	36 [label="osd.36"]
+	65 [label="osd.65"]
+	32 [label="osd.32"]
+	27 [label="osd.27"]
+	104 [label="osd.104"]
+	92 [label="osd.92"]
+	95 [label="osd.95"]
+	98 [label="osd.98"]
+	96 [label="osd.96"]
+	97 [label="osd.97"]
+	89 [label="osd.89"]
+	91 [label="osd.91"]
+	94 [label="osd.94"]
+	90 [label="osd.90"]
+	93 [label="osd.93"]
+	87 [label="osd.87"]
+	88 [label="osd.88"]
+	52 [label="osd.52"]
+	53 [label="osd.53"]
+	60 [label="osd.60"]
+	47 [label="osd.47"]
+	51 [label="osd.51"]
+	62 [label="osd.62"]
+	54 [label="osd.54"]
+	50 [label="osd.50"]
+	44 [label="osd.44"]
+	102 [label="osd.102"]
+	103 [label="osd.103"]
+	56 [label="osd.56"]
+	71 [label="osd.71"]
+	74 [label="osd.74"]
+	64 [label="osd.64"]
+	72 [label="osd.72"]
+	66 [label="osd.66"]
+	73 [label="osd.73"]
+	63 [label="osd.63"]
+	67 [label="osd.67"]
+	70 [label="osd.70"]
+	34 [label="osd.34"]
+	39 [label="osd.39"]
+	40 [label="osd.40"]
+	-12 -> 59
+	-12 -> 69
+	-12 -> 85
+	-12 -> 83
+	-12 -> 49
+	-12 -> 46
+	-12 -> 43
+	-12 -> 55
+	-12 -> 57
+	-12 -> 48
+	-12 -> 42
+	-12 -> 41
+	-3 -> 100
+	-3 -> 99
+	-3 -> 101
+	-3 -> 108
+	-3 -> 106
+	-3 -> 107
+	-3 -> 105
+	-3 -> 26
+	-3 -> 30
+	-3 -> 58
+	-3 -> 25
+	-3 -> 75
+	-5 -> 15
+	-5 -> 12
+	-5 -> 10
+	-5 -> 14
+	-5 -> 13
+	-5 -> 11
+	-5 -> 9
+	-5 -> 8
+	-18 -> 131
+	-18 -> 130
+	-18 -> 129
+	-18 -> 128
+	-18 -> 127
+	-18 -> 126
+	-18 -> 125
+	-18 -> 124
+	-18 -> 123
+	-18 -> 120
+	-18 -> 122
+	-18 -> 121
+	-6 -> 2
+	-6 -> 6
+	-6 -> 7
+	-6 -> 5
+	-6 -> 4
+	-6 -> 3
+	-6 -> 1
+	-6 -> 0
+	-19 -> 119
+	-19 -> 109
+	-19 -> 139
+	-19 -> 135
+	-19 -> 142
+	-19 -> 141
+	-19 -> 138
+	-19 -> 137
+	-19 -> 133
+	-19 -> 136
+	-19 -> 134
+	-19 -> 132
+	-7 -> 18
+	-7 -> 23
+	-7 -> 21
+	-7 -> 22
+	-7 -> 20
+	-7 -> 19
+	-7 -> 17
+	-7 -> 16
+	-20 -> 146
+	-20 -> 143
+	-20 -> 61
+	-20 -> 148
+	-20 -> 140
+	-20 -> 155
+	-20 -> 153
+	-20 -> 150
+	-20 -> 149
+	-20 -> 147
+	-20 -> 145
+	-20 -> 144
+	-15 -> 84
+	-15 -> 82
+	-15 -> 77
+	-15 -> 76
+	-15 -> 78
+	-15 -> 80
+	-15 -> 45
+	-15 -> 79
+	-15 -> 81
+	-15 -> 24
+	-15 -> 86
+	-15 -> 68
+	-4 -> 158
+	-4 -> 157
+	-4 -> 156
+	-4 -> 117
+	-4 -> 116
+	-4 -> 111
+	-4 -> 110
+	-4 -> 114
+	-4 -> 112
+	-4 -> 113
+	-4 -> 118
+	-4 -> 115
+	-11 -> 104
+	-11 -> 27
+	-11 -> 32
+	-11 -> 65
+	-11 -> 36
+	-11 -> 35
+	-11 -> 31
+	-11 -> 29
+	-11 -> 37
+	-11 -> 38
+	-11 -> 33
+	-11 -> 28
+	-16 -> 88
+	-16 -> 87
+	-16 -> 93
+	-16 -> 90
+	-16 -> 94
+	-16 -> 91
+	-16 -> 89
+	-16 -> 97
+	-16 -> 96
+	-16 -> 98
+	-16 -> 95
+	-16 -> 92
+	-13 -> 56
+	-13 -> 103
+	-13 -> 102
+	-13 -> 44
+	-13 -> 50
+	-13 -> 54
+	-13 -> 62
+	-13 -> 51
+	-13 -> 47
+	-13 -> 60
+	-13 -> 53
+	-13 -> 52
+	-14 -> 40
+	-14 -> 39
+	-14 -> 34
+	-14 -> 70
+	-14 -> 67
+	-14 -> 63
+	-14 -> 73
+	-14 -> 66
+	-14 -> 72
+	-14 -> 64
+	-14 -> 74
+	-14 -> 71
+	-30 -> -12
+	-27 -> -3
+	-21 -> -18
+	-21 -> -5
+	-22 -> -26
+	-22 -> -25
+	-23 -> -20
+	-23 -> -7
+	-8 -> -33
+	-8 -> -32
+	-9 -> -16
+	-9 -> -11
+	-10 -> -14
+	-10 -> -13
+	-25 -> -6
+	-26 -> -19
+	-32 -> -15
+	-33 -> -4
+	-24 -> -27
+	-24 -> -30
+	-17 -> -23
+	-17 -> -22
+	-17 -> -21
+	-1 -> -10
+	-1 -> -9
+	-1 -> -8
 }
