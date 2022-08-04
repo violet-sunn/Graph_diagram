@@ -1,4 +1,4 @@
-import graphviz
+from pyvis.network import Network
 import json
 
 
@@ -8,69 +8,109 @@ def get_node_name_by_id(node_id, file_data):
             return elem.get('name')
 
 
+def get_free_space_percentage(node_id, dataset):
+    for elem in dataset:
+        if elem.get('id') == node_id:
+            return elem['kb_avail'] / (elem['kb_used'] + elem['kb_avail']) * 100
+
+
 filename = 'json.json'
 
 with open(filename) as f:
     data = json.load(f)
 
-roots = {}
-datacenters = {}
-hosts = {}
-osds = {}
-racks = {}
+net = Network(height='750px', width='100%', directed=True, notebook=False,
+              bgcolor='#ffffff', font_color=False, layout=None, heading='')
+net.show_buttons(filter_='nodes')
 
-for nodes in data['nodes']:
-    if nodes['type'] == 'root':
-        roots[nodes['id']] = nodes['children']
-    # roots[root_index[i]].append(nodes['id'])
-    # roots['root-children', nodes['name']] = str(nodes['children'])
-    if nodes['type'] == 'datacenter':
-        datacenters[nodes['id']] = nodes['children']
-        # datacenters['host-children', nodes['name']] = lists_idx(nodes['children'])
-    if nodes['type'] == 'rack':
-        racks[nodes['id']] = nodes['children']
-    if nodes['type'] == 'host':
-        hosts[nodes['id']] = nodes['children']
-        # hosts['host-children', nodes['name']] = lists_idx(nodes['children'])
-    if nodes['type'] == 'osd':
-        osds[nodes['id']] = nodes['name']
-        # osds['osd-children'] = lists_idx(nodes['children'])'''
+nodes = {'osds': {}, 'hosts': {}, 'racks': {}, 'datacenters': {}, 'roots': {}}
 
-# graph object definition
-g = graphviz.Digraph('G', filename='diagram.gv')
-g.attr(newrank='true')
+for item in data['nodes']:
+    if item['type'] == 'root':
+        nodes['roots'][item['id']] = item['children']
+    if item['type'] == 'datacenter':
+        nodes['datacenters'][item['id']] = item['children']
+    if item['type'] == 'rack':
+        nodes['racks'][item['id']] = item['children']
+    if item['type'] == 'host':
+        nodes['hosts'][item['id']] = item['children']
+    if item['type'] == 'osd':
+        nodes['osds'][item['id']] = item['name']
 
-# styles definition
+print(nodes)
+for tp in nodes:
+    if tp == 'osds':
+        for key, val in nodes[tp].items():
+            if get_free_space_percentage(key, data['nodes']) < 10:
+                clr = 'red'
+            elif get_free_space_percentage(key, data['nodes']) < 30:
+                clr = 'orange'
+            elif get_free_space_percentage(key, data['nodes']) < 50:
+                clr = 'green'
+            elif get_free_space_percentage(key, data['nodes']) < 75:
+                clr = 'blue'
+            else:
+                clr = 'blue'
+            net.add_node(key, val, shape='circle', color=clr)
+    if tp == 'hosts':
+        for key, val in nodes[tp].items():
+            if get_free_space_percentage(key, data['nodes']) < 10:
+                clr = 'red'
+            elif get_free_space_percentage(key, data['nodes']) < 30:
+                clr = 'orange'
+            elif get_free_space_percentage(key, data['nodes']) < 50:
+                clr = 'green'
+            elif get_free_space_percentage(key, data['nodes']) < 75:
+                clr = 'cian'
+            else:
+                clr = 'blue'
+            net.add_node(key, get_node_name_by_id(key, data['nodes']), shape='box', color=clr)
+            for item in val:
+                net.add_edge(key, item)
+    if tp == 'racks':
+        for key, val in nodes[tp].items():
+            if get_free_space_percentage(key, data['nodes']) < 10:
+                clr = 'red'
+            elif get_free_space_percentage(key, data['nodes']) < 30:
+                clr = 'orange'
+            elif get_free_space_percentage(key, data['nodes']) < 50:
+                clr = 'green'
+            elif get_free_space_percentage(key, data['nodes']) < 75:
+                clr = 'cian'
+            else:
+                clr = 'blue'
+            net.add_node(key, get_node_name_by_id(key, data['nodes']), shape='box', color=clr)
+            for item in val:
+                net.add_edge(key, item)
+    if tp == 'datacenters':
+        for key, val in nodes[tp].items():
+            if get_free_space_percentage(key, data['nodes']) < 10:
+                clr = 'red'
+            elif get_free_space_percentage(key, data['nodes']) < 30:
+                clr = 'orange'
+            elif get_free_space_percentage(key, data['nodes']) < 50:
+                clr = 'green'
+            elif get_free_space_percentage(key, data['nodes']) < 75:
+                clr = 'cian'
+            else:
+                clr = 'blue'
+            net.add_node(key, get_node_name_by_id(key, data['nodes']), shape='box', color=clr)
+            for item in val:
+                net.add_edge(key, item)
+    if tp == 'roots':
+        for key, val in nodes[tp].items():
+            if get_free_space_percentage(key, data['nodes']) < 10:
+                clr = 'red'
+            elif get_free_space_percentage(key, data['nodes']) < 30:
+                clr = 'orange'
+            elif get_free_space_percentage(key, data['nodes']) < 50:
+                clr = 'green'
+            elif get_free_space_percentage(key, data['nodes']) < 75:
+                clr = 'cian'
+            else:
+                clr = 'blue'
+            net.add_node(key, get_node_name_by_id(key, data['nodes']), shape='star', color=clr)
+            for item in val:
+                net.add_edge(key, item)
 
-
-# nodes creation
-for key, val in roots.items():
-    g.node(str(key), get_node_name_by_id(key, data['nodes']))
-for key, val in datacenters.items():
-    g.node(str(key), get_node_name_by_id(key, data['nodes']))
-for key, val in racks.items():
-    g.node(str(key), get_node_name_by_id(key, data['nodes']))
-for key, val in hosts.items():
-    g.node(str(key), get_node_name_by_id(key, data['nodes']))
-for key, val in osds.items():
-    g.node(str(key), val)
-
-# edges creation
-for key, val in hosts.items():
-    for item in val:
-        # print('host' + str(key), 'osd' + str(item))
-        g.edge(str(key), str(item))
-for key, val in datacenters.items():
-    for item in val:
-        # print('host' + str(key), 'osd' + str(item))
-        g.edge(str(key), str(item))
-for key, val in racks.items():
-    for item in val:
-        # print('host' + str(key), 'osd' + str(item))
-        g.edge(str(key), str(item))
-for key, val in roots.items():
-    for item in val:
-        # print('host' + str(key), 'osd' + str(item))
-        g.edge(str(key), str(item))
-
-g.view()
+net.show('nodes.html')
