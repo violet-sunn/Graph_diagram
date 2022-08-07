@@ -41,9 +41,34 @@ filename = 'ceph2.json'
 with open(filename) as f:
     data = json.load(f)
 
-net = Network(height='750px', width='100%', directed=True, notebook=False,
-              bgcolor='#ffffff', font_color=False, layout=None, heading='')
-net.force_atlas_2based()
+net = Network(height='100%', width='100%', directed=True, notebook=False,
+              bgcolor='#ffffff')
+net.set_options("""{
+  "edges": {
+    "color": {
+      "inherit": true
+    },
+    "selfReferenceSize": null,
+    "selfReference": {
+      "angle": 0.7853981633974483
+    },
+    "smooth": false
+  },
+  "layout": {
+    "hierarchical": {
+      "enabled": true,
+      "sortMethod": "directed"
+    }
+  },
+  "physics": {
+    "hierarchicalRepulsion": {
+      "centralGravity": 0,
+      "avoidOverlap": null
+    },
+    "minVelocity": 0.75,
+    "solver": "hierarchicalRepulsion"
+  }
+}""")
 
 nodes = {'osds': {}, 'hosts': {}, 'racks': {}, 'datacenters': {}, 'roots': {}}
 
@@ -58,6 +83,7 @@ for item in data['nodes']:
         nodes['hosts'][item['id']] = item['children']
     if item['type'] == 'osd':
         nodes['osds'][item['id']] = item['name']
+
 
 for tp in nodes:
     if tp == 'osds':
@@ -84,7 +110,8 @@ for tp in nodes:
                 net.add_edge(key, item)
     if tp == 'roots':
         for key, val in nodes[tp].items():
-            net.add_node(key, get_node_name_by_id(key, data['nodes']), shape='star',
+            net.add_node(key, get_node_name_by_id(key, data['nodes']),
+                         shape='star',
                          color=get_color_by_percentage(get_free_space_percentage(key, data['nodes'])))
             for item in val:
                 net.add_edge(key, item)
