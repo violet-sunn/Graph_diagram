@@ -70,7 +70,7 @@ net.set_options("""{
   }
 }""")
 
-nodes = {'osds': {}, 'hosts': {}, 'racks': {}, 'datacenters': {}, 'roots': {}}
+nodes = { 'osds': {}, 'hosts': {}, 'racks': {}, 'datacenters': {}, 'roots': {}}
 
 for item in data['nodes']:
     if item['type'] == 'root':
