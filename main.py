@@ -14,6 +14,12 @@ def get_node_name_by_id(node_id, dataset):
             return elem.get('name')
 
 
+def get_node_mal_status_by_id(node_id, dataset):
+    for elem in dataset:
+        if elem.get('id') == node_id:
+            return elem.get('pgs')
+
+
 def get_free_space_percentage(node_id, dataset):
     for elem in dataset:
         if elem.get('id') == node_id:
@@ -36,7 +42,7 @@ def get_color_by_percentage(pcnt):
     return clr
 
 
-filename = 'ceph2.json'
+filename = 'ceph7.json'
 
 with open(filename) as f:
     data = json.load(f)
@@ -59,61 +65,73 @@ net.set_options("""{
       "enabled": true,
       "sortMethod": "directed"
     }
-  },
-  "physics": {
-    "hierarchicalRepulsion": {
-      "centralGravity": 0,
-      "avoidOverlap": null
-    },
-    "minVelocity": 0.75,
-    "solver": "hierarchicalRepulsion"
   }
 }""")
 
-nodes = { 'osds': {}, 'hosts': {}, 'racks': {}, 'datacenters': {}, 'roots': {}}
+nodes = {'osds': {}, 'hosts': {}, 'racks': {}, 'datacenters': {}, 'roots': {}}
+subtrees = []
 
 for item in data['nodes']:
     if item['type'] == 'root':
         nodes['roots'][item['id']] = item['children']
+        subtrees.append(item['id'])
+        continue
     if item['type'] == 'datacenter':
         nodes['datacenters'][item['id']] = item['children']
+        continue
     if item['type'] == 'rack':
         nodes['racks'][item['id']] = item['children']
+        continue
     if item['type'] == 'host':
         nodes['hosts'][item['id']] = item['children']
+        continue
     if item['type'] == 'osd':
         nodes['osds'][item['id']] = item['name']
-
+        continue
 
 for tp in nodes:
     if tp == 'osds':
         for key, val in nodes[tp].items():
-            net.add_node(key, f"{val} \npgs - {get_pgs_by_osd_id(key, data['nodes'])}", shape='circle',
-                         color=get_color_by_percentage(get_free_space_percentage(key, data['nodes'])))
+            if get_node_mal_status_by_id(key, data['nodes']):
+                net.add_node(key, f"{val} \npgs - {get_pgs_by_osd_id(key, data['nodes'])}", shape='triangle',
+                            color=get_color_by_percentage(get_free_space_percentage(key, data['nodes'])),
+                            level=5)
+            else:
+                net.add_node(key, f"{val} \npgs - {get_pgs_by_osd_id(key, data['nodes'])}", shape='triangleDown',
+                             color=get_color_by_percentage(get_free_space_percentage(key, data['nodes'])),
+                             level=5)
+        continue
     if tp == 'hosts':
         for key, val in nodes[tp].items():
-            net.add_node(key, get_node_name_by_id(key, data['nodes']), shape='box',
-                         color=get_color_by_percentage(get_free_space_percentage(key, data['nodes'])))
+            net.add_node(key, get_node_name_by_id(key, data['nodes']), shape='square',
+                         color=get_color_by_percentage(get_free_space_percentage(key, data['nodes'])), level=4)
             for item in val:
                 net.add_edge(key, item)
+        continue
     if tp == 'racks':
         for key, val in nodes[tp].items():
-            net.add_node(key, get_node_name_by_id(key, data['nodes']), shape='box',
-                         color=get_color_by_percentage(get_free_space_percentage(key, data['nodes'])))
+            net.add_node(key, get_node_name_by_id(key, data['nodes']), shape='diamond',
+                         color=get_color_by_percentage(get_free_space_percentage(key, data['nodes'])), level=3)
             for item in val:
                 net.add_edge(key, item)
+        continue
     if tp == 'datacenters':
         for key, val in nodes[tp].items():
-            net.add_node(key, get_node_name_by_id(key, data['nodes']), shape='box',
-                         color=get_color_by_percentage(get_free_space_percentage(key, data['nodes'])))
+            net.add_node(key, get_node_name_by_id(key, data['nodes']), shape='hexagon',
+                         color=get_color_by_percentage(get_free_space_percentage(key, data['nodes'])), level=2)
             for item in val:
                 net.add_edge(key, item)
+        continue
     if tp == 'roots':
         for key, val in nodes[tp].items():
             net.add_node(key, get_node_name_by_id(key, data['nodes']),
                          shape='star',
-                         color=get_color_by_percentage(get_free_space_percentage(key, data['nodes'])))
+                         color=get_color_by_percentage(get_free_space_percentage(key, data['nodes'])), level=1,
+                         size=75)
             for item in val:
                 net.add_edge(key, item)
+        continue
+
+
 
 net.show('nodes.html')
